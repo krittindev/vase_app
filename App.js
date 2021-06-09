@@ -1,13 +1,19 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, SafeAreaView } from "react-native";
+import { WebView } from "react-native-webview";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Hello World</Text>
-      <StatusBar style="auto" />
-    </View>
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      // default state on first render
+    };
+  }
+
+  render = () => (
+    <SafeAreaView style={styles.container}>
+      <WebView source={{ url: "https://tuliptgr.github.io/vase/" }} />
+    </SafeAreaView>
   );
 }
 
@@ -15,7 +21,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
     justifyContent: "center",
   },
 });
